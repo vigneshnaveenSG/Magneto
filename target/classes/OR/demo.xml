@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<Application name="magneto">
+  
+   <Page bearsData="true" name="Home" title="" index="">
+		<Link name="SignIn" type="linktext"
+			locator="Sign In" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Men" type="xpath"
+			locator="//a/span[contains(text(),'Men')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Women" type="xpath"
+			locator="//a/span[contains(text(),'Women')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="whatsnew" type="xpath"
+			locator="//a/span[contains(text(),'What')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Gear" type="xpath"
+			locator="//a/span[contains(text(),'Gear')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Training" type="xpath"
+			locator="//a/span[contains(text(),'Training')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Sale" type="xpath"
+			locator="//a/span[contains(text(),'Sale')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Luma" type="xpath"
+			locator="//a[@class='logo']" dataField="false" anchor="true">
+		</Link>	
+		<WebElement name="Hotsellers" type="xpath"
+			locator="//h2[contains(text(),'Hot Sellers')]" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="Hotseller" type="xpath"
+			locator="//div[@class='product-item-details']//child::*[@title='itemvalue']" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="sizes" type="xpath"
+			locator="//div[@class='product-item-details']//child::*[@title='itemvalue']/..//following-sibling::div/*[@class='swatch-attribute size']/*/div[contains(text(),'itemvalue')]" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="colours" type="xpath"
+			locator="//div[@class='product-item-details']//child::*[@title='itemvalue']/..//following-sibling::div/*[@class='swatch-attribute color']/*/div[@option-label='itemvalue']" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="review" type="xpath"
+			locator="//div[@class='product-item-details']//child::*[@title='itemvalue']/..//following-sibling::div/*[@class='itemvalue']" dataField="false" anchor="true">
+		</WebElement>		
+		<WebElement name="lowestprice" type="xpath"
+			locator="//div[@class='product-item-details']//child::*[@title='itemvalue']/..//following-sibling::div[@class='price-box price-final_price']//span[contains(text(),'itemvalue')]" dataField="false" anchor="true">
+		</WebElement>
+		<Link name="Tops" type="xpath"
+			locator="//a/span[contains(text(),'Men')]/..//following-sibling::ul/*/a/span[contains(text(),'Tops')]" dataField="false" anchor="true">
+		</Link>
+		<Link name="jackets" type="xpath"
+			locator="//a/span[contains(text(),'Men')]/..//following-sibling::ul/*/a/span[contains(text(),'Tops')]/..//following-sibling::ul/*/a/span[contains(text(),'Jackets')]/.." dataField="false" anchor="true">
+		</Link>
+	</Page>
+	
+	<Page bearsData="true" name="customerlogin" title="" index="">
+		<Link name="CreateAccount" type="linktext"
+			locator="Create an Account" dataField="false" anchor="true">
+		</Link>		
+	</Page>
+   
+   <Page bearsData="true" name="createcustomeraccount" title="" index="">
+		<Textbox name="firstname" type="id"
+			locator="firstname" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="lastname" type="id"
+			locator="lastname" dataField="false" anchor="true">
+		</Textbox>	
+		<Textbox name="email" type="id"
+			locator="email_address" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="password" type="id"
+			locator="password" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="passwordconfirmation" type="id"
+			locator="password-confirmation" dataField="false" anchor="true">
+		</Textbox>
+		<Button name="createaccount" type="xpath"
+			locator="//button[@title='Create an Account']/span" dataField="false" anchor="true">
+		</Button>
+	</Page>
+	
+	<Page bearsData="true" name="jackets" title="" index="">
+		<Link name="style" type="xpath"
+			locator="//div[contains(text(),'Style')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="hardshell" type="xpath"
+			locator="//a[contains(text(),'Hard Shell')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="size" type="xpath"
+			locator="//div[contains(text(),'Size')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Medium" type="xpath"
+			locator="//div[contains(text(),'Size')]//following-sibling::div//child::div[contains(text(),'M')]" dataField="false" anchor="true">
+		</Link>		
+		<Link name="price" type="xpath"
+			locator="//div[contains(text(),'Price')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="FourtyDollorAmount" type="xpath"
+			locator="//div[contains(text(),'Price')]//following-sibling::div//child::span[contains(text(),'40')]/.." dataField="false" anchor="true">
+		</Link>	
+		<Link name="colour" type="xpath"
+			locator="//div[contains(text(),'Color')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="Red" type="xpath"
+			locator="//div[contains(text(),'Color')]//following-sibling::div//child::div[@option-label='Red']" dataField="false" anchor="true">
+		</Link>	
+		<Link name="material" type="xpath"
+			locator="//div[contains(text(),'Material')]" dataField="false" anchor="true">
+		</Link>	
+		<Link name="fleece" type="xpath"
+			locator="//div[contains(text(),'Material')]//following-sibling::div//child::a[contains(text(),'Fleece')]" dataField="false" anchor="true">
+		</Link>	
+		<Img name="BeaumontJacket" type="xpath"
+			locator="//li[@class='item product product-item']//child::img[@alt='Beaumont Summit Kit-M-Red']" dataField="false" anchor="true">
+		</Img>	
+		<WebElement name="Instock" type="xpath"
+			locator="//div[@title='Availability']/span[contains(text(),'In stock')]" dataField="false" anchor="true">
+		</WebElement>	
+		
+		<Link name="Mediumsize" type="xpath"
+			locator="//div[@option-label='M']" dataField="false" anchor="true">
+		</Link>	
+		
+		<Link name="RedColour" type="xpath"
+			locator="//div[@option-label='Red']" dataField="false" anchor="true">
+		</Link>	
+		<button name="AddToCartbtn" type="xpath"
+			locator="//button[@title='Add to Cart']" dataField="false" anchor="true">
+		</button>	
+		
+		<WebElement name="sizeerror" type="xpath"
+			locator="//div[@attribute-code='size']//child::div[contains(text(),'itemvalue')]" dataField="false" anchor="true">
+		</WebElement>
+		
+		<WebElement name="AddToCart" type="xpath"
+			locator="//a[contains(text(),'itemvalue')]" dataField="false" anchor="true">
+		</WebElement>	
+		
+		<button name="MyCart" type="xpath"
+			locator="//span[contains(text(),'My Cart')]/.." dataField="false" anchor="true">
+		</button>
+		
+		<button name="ProceedtoCheckout" type="xpath"
+			locator="//button[contains(text(),'Proceed to Checkout')]" dataField="false" anchor="true">
+		</button>	
+	</Page>
+	
+	<Page bearsData="true" name="shipping" title="" index="">
+		<Textbox name="emailaddress" type="xpath"
+			locator="//input[@id='customer-email'][1]" dataField="false" anchor="true">
+		</Textbox>	
+		<Textbox name="firstname" type="name"
+			locator="firstname" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="lastname" type="name"
+			locator="lastname" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="comapany" type="name"
+			locator="company" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="streetaddress1" type="name"
+			locator="street[0]" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="streetaddress2" type="name"
+			locator="street[1]" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="streetaddress3" type="name"
+			locator="street[2]" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="city" type="name"
+			locator="city" dataField="false" anchor="true">
+		</Textbox>
+		<Listbox name="state" type="name"
+			locator="region_id" dataField="false" anchor="true">
+		</Listbox>
+		<Textbox name="zipcode" type="name"
+			locator="postcode" dataField="false" anchor="true">
+		</Textbox>
+		<Listbox name="country" type="name"
+			locator="country_id" dataField="false" anchor="true">
+		</Listbox>
+		<Textbox name="phonenumber" type="name"
+			locator="telephone" dataField="false" anchor="true">
+		</Textbox>
+		<Radiobutton name="flatrate" type="name"
+			locator="ko_unique_1" dataField="false" anchor="true">
+		</Radiobutton>
+		<Radiobutton name="bestway" type="name"
+			locator="ko_unique_2" dataField="false" anchor="true">
+		</Radiobutton>
+		<button name="next" type="xpath"
+			locator="//span[contains(text(),'Next')]" dataField="false" anchor="true">
+		</button>
+	
+	</Page>
+	<Page bearsData="true" name="payment" title="" index="">
+		<WebElement name="paymentmethod" type="xpath"
+			locator="//span[contains(text(),'Check / Money order')]" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="ordersummary" type="xpath"
+			locator="//span[contains(text(),'Order Summary')]" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="shipto" type="xpath"
+			locator="//span[contains(text(),'Ship To')]" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="shippingmethod" type="xpath"
+			locator="//span[contains(text(),'Shipping Method')]" dataField="false" anchor="true">
+		</WebElement>
+		<button name="placeorder" type="xpath"
+			locator="//span[contains(text(),'Place Order')]" dataField="false" anchor="true">
+		</button>
+		
+	</Page>
+	
+	<Page bearsData="true" name="completion" title="" index="">
+		<WebElement name="thanksmsg" type="xpath"
+			locator="//span[contains(text(),'Thank you for your purchase!')]" dataField="false" anchor="true">
+		</WebElement>
+		<WebElement name="emailaddress" type="xpath"
+			locator="//span[contains(text(),'Email Address')]" dataField="false" anchor="true">
+		</WebElement>
+		<button name="continueshopping" type="xpath"
+			locator="//span[contains(text(),'Continue Shopping')]" dataField="false" anchor="true">
+		</button>
+	</Page>
+</Application>
