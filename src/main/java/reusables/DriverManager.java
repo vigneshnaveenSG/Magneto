@@ -21,6 +21,8 @@ public class DriverManager {
 		{
 	
 		case "chrome":
+			ChromeOptions options = new ChromeOptions();
+			options.setBrowserVersion("113.0");
 			driver = new ChromeDriver();
 			break;
 		case "firefox":
