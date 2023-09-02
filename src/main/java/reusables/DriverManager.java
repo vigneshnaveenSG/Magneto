@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverManager {
@@ -21,8 +22,8 @@ public class DriverManager {
 		{
 	
 		case "chrome":
-			ChromeOptions options = new ChromeOptions();
-			options.setBrowserVersion("113.0");
+		//	ChromeOptions options = new ChromeOptions();
+		//	options.setBrowserVersion("116.0");
 			driver = new ChromeDriver();
 			break;
 		case "firefox":

@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		features="src/main/resources/Features",
 		glue={"stepDef","reusables"},
-		tags="@develop",
+		tags="@jenkins",
 		plugin={"html:target/cucumber-html-report", "json:target/cucumber.json",
 		 
 		"pretty:target/cucumber-pretty.txt","usage:target/cucumber-usage.json"},
