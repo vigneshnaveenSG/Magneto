@@ -24,6 +24,7 @@ public class DriverManager {
 		case "chrome":
 		//	ChromeOptions options = new ChromeOptions();
 		//	options.setBrowserVersion("116.0");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\.cache\\selenium\\chromedriver\\win64\\\\116.0.5845.96\\chromedriver.exe");  
 			driver = new ChromeDriver();
 			break;
 		case "firefox":
