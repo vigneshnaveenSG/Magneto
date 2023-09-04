@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('BUILD') {
+            steps { 
+            	git 'https://github.com/vigneshnaveenSG/Magneto.git/'
+        		echo "Code is checked out from the github"
+            }
+        }
+        stage('COMPILE') {
+            steps { 
+            	bat 'mvn clean install'
+        		echo "Code is checked out from the github"
+            }
+        }
+        stage('RESULT') {
+            steps { 
+            	    		echo "Declerative pipeline execution is completed"
+            }
+        }
+    }
+}
