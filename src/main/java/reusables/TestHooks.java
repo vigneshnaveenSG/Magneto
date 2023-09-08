@@ -10,10 +10,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import reports.reportsImplementation;
 
 
 public class TestHooks extends DriverManager {
 	
+	Scenario scenario;
 
 	@Before(order=0)
 	public void loadOR()
@@ -27,8 +30,10 @@ public class TestHooks extends DriverManager {
 	}
 	
 	@Before(order=1)
-	public void setup() throws Exception
+	public void setup(Scenario sce) throws Exception
 	{
+		reportsImplementation  rep= new reportsImplementation();
+		rep.reportsInitialization(sce);
 		getDriver(prop.getProperty("browser"));
 	}
 }

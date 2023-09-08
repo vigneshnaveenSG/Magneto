@@ -11,8 +11,8 @@ import io.cucumber.testng.CucumberOptions;
 		glue={"stepDef","reusables"},
 		tags="@jenkins",
 		plugin={"html:target/cucumber-html-report", "json:target/cucumber.json",
-		 
-		"pretty:target/cucumber-pretty.txt","usage:target/cucumber-usage.json"},
+				"pretty:target/cucumber-pretty.txt","usage:target/cucumber-usage.json",
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 				
 		dryRun = false,
 		monochrome = true

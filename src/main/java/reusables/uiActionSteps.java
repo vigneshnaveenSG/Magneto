@@ -7,15 +7,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import io.cucumber.java.Scenario;
+import reports.reportsImplementation;
+
 public class uiActionSteps extends DriverManager{
 	
 	//public WebDriver driver;
 	public WebElement wele;
+	reportsImplementation  rep= new reportsImplementation();
 	
 	public void launchBrowser(String url) throws Exception
 	{
 		driver.get(url);
 		driver.manage().window().maximize();
+		rep.info("Driver is launched successfully");
 	}
 	
 	public void clickElement(String actToBePerformed,String fldName)
@@ -26,20 +31,23 @@ public class uiActionSteps extends DriverManager{
 		
 		if(wele.isDisplayed())
 		{
-			System.out.println(fldName+" is displayed ");
+			
+			rep.info(fldName+" is displayed successfully");
 		
 			switch (actToBePerformed.toLowerCase())
 			{
 			case "click":
 			case "clicked":
 				try {
-					wele.click();
-					System.out.println(fldName+" is clicked successfully");
+					wele.click();									
 					Thread.sleep(1000);
+					rep.pass(fldName+"is clickeked successfully");
+					
 					break;
 				}
 				catch(Exception e)
 				{
+					rep.fail(fldName+"is not clickeked successfully");
 					e.printStackTrace();
 				}
 				
@@ -47,13 +55,13 @@ public class uiActionSteps extends DriverManager{
 			case "hover":
 				try {
 					Act.moveToElement(wele).perform();
-					
-					System.out.println(fldName+" is hovered successfully");
 					Thread.sleep(1000);
+					rep.pass(fldName+" is hovered successfully");
 					break;
 				}
 				catch(Exception e)
 				{
+					rep.pass(fldName+" is not hovered successfully");
 					e.printStackTrace();
 				}
 				
@@ -61,16 +69,22 @@ public class uiActionSteps extends DriverManager{
 				try {
 					Act.click(wele).perform();
 					
-					System.out.println(fldName+" is hovered successfully");
+					rep.pass(fldName+"is clicked successfully");
 					Thread.sleep(1000);
 					break;
 				}
 				catch(Exception e)
 				{
+					rep.fail(fldName+"is not clicked successfully");
 					e.printStackTrace();
 				}
 			}
 		}
+			else
+			{
+				rep.fail(fldName+"is clicked successfully");				;
+			}
+		
 	}
 	
 	public void enterText(String actionTobePerformed,String fldName,String value)
@@ -79,27 +93,44 @@ public class uiActionSteps extends DriverManager{
 		
 		if(wele.isDisplayed())
 		{
-			try {
+			rep.info(fldName+" is displayed successfully");
 				switch (actionTobePerformed.toLowerCase())
 				
 				{
 				case "entered":
+					try {
 					wele.sendKeys(value);
+					rep.pass(value+"entered in "+ fldName+"  successfully");
+					}
+					catch(Exception e)
+					{
+						rep.fail(value+"entered in "+ fldName+"  successfully");
+						e.printStackTrace();
+					}
 					break;
 				case "selects":
 				case "selected":
+					try
+					{
 					Select sel = new Select(wele);
 					sel.selectByVisibleText(value);
+					rep.fail(value+" selected in "+ fldName+" listbox successfully");
+					}
+					catch(Exception e)
+					{
+						rep.fail(value+"not selected in "+ fldName+" listbox successfully");
+						e.printStackTrace();
+					}
 					break;
 				}
 				
 			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
+		else
+		{ 
+			rep.info(fldName+" is not displayed successfully");
 		}
 	}
+	
 	
 	public void isDisplayed(String fldName)
 	{
@@ -107,10 +138,12 @@ public class uiActionSteps extends DriverManager{
 		if(wele.isDisplayed())
 		{
 			try {
-				System.out.println(fldName+" ELement is displayed Successfully");
+				
+				rep.pass(fldName+" is displayed successfully");
 			}
 			catch(Exception e)
 			{
+				rep.fail(fldName+" is not displayed successfully");
 				e.printStackTrace();
 			}
 		}
