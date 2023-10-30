@@ -15,6 +15,7 @@ public class DriverManager {
 	
 	public static WebDriver driver;
 	public static Properties prop = new Properties();
+	 private ThreadLocal<WebDriver> threadLocal = new ThreadLocal<WebDriver>();  
 	
 	public void getDriver(String browser) throws Exception
 	{
@@ -24,8 +25,9 @@ public class DriverManager {
 		case "chrome":
 		//	ChromeOptions options = new ChromeOptions();
 		//	options.setBrowserVersion("116.0");
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\.cache\\selenium\\chromedriver\\win64\\\\116.0.5845.96\\chromedriver.exe");  
-			driver = new ChromeDriver();
+		//	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\.cache\\selenium\\chromedriver\\win64\\\\116.0.5845.96\\chromedriver.exe");  
+			 threadLocal.set(new ChromeDriver());
+			driver = threadLocal.get();
 			break;
 		case "firefox":
 			driver = new FirefoxDriver();

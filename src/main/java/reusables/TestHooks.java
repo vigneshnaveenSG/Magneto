@@ -19,21 +19,24 @@ public class TestHooks extends DriverManager {
 	Scenario scenario;
 
 	@Before(order=0)
-	public void loadOR()
+	public void loadOR(Scenario sce) throws Exception
 	{
 				
 		loadConfig();
 		ORLoader.LoadOR(prop.getProperty("ORPath"));
+		reportsImplementation  rep= new reportsImplementation();
+		rep.reportsInitialization(sce);
+		getDriver(prop.getProperty("browser"));
 		
 	/*	xmlParser xp = new xmlParser();
 		xp.LoadOR("PassWord");*/
 	}
 	
-	@Before(order=1)
+/*	@Before(order=1)
 	public void setup(Scenario sce) throws Exception
 	{
 		reportsImplementation  rep= new reportsImplementation();
 		rep.reportsInitialization(sce);
 		getDriver(prop.getProperty("browser"));
-	}
-}
+	}*/
+} 
