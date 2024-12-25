@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.Scenario;
 import reports.reportsImplementation;
@@ -13,8 +15,9 @@ import reports.reportsImplementation;
 public class uiActionSteps extends DriverManager{
 	
 	//public WebDriver driver;
-	public WebElement wele;
+	public WebElement webEle;
 	reportsImplementation  rep= new reportsImplementation();
+	WebDriverWait wait = WebDriverWait(driver, 1000);
 	
 	public void launchBrowser(String url) throws Exception
 	{
@@ -23,13 +26,19 @@ public class uiActionSteps extends DriverManager{
 		rep.info("Driver is launched successfully");
 	}
 	
-	public void clickElement(String actToBePerformed,String fldName)
+	private WebDriverWait WebDriverWait(WebDriver driver, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void clickElement(String actToBePerformed,String fldName) throws Exception
 	{
-		wele =driver.findElement(xmlParser.LoadOR(fldName));
+		webEle=driver.findElement(xmlParser.LoadOR(fldName));
+		Thread.sleep(1000);  
 		
 		Actions Act = new Actions(driver);
 		
-		if(wele.isDisplayed())
+		if(webEle.isDisplayed())
 		{
 			
 			rep.info(fldName+" is displayed successfully");
@@ -39,7 +48,7 @@ public class uiActionSteps extends DriverManager{
 			case "click":
 			case "clicked":
 				try {
-					wele.click();									
+					webEle.click();									
 					Thread.sleep(1000);
 					rep.pass(fldName+"is clickeked successfully");
 					
@@ -47,14 +56,14 @@ public class uiActionSteps extends DriverManager{
 				}
 				catch(Exception e)
 				{
-					rep.fail(fldName+"is not clickeked successfully");
+					rep.fail(fldName+"is not clicked successfully");
 					e.printStackTrace();
 				}
 				
 				
 			case "hover":
 				try {
-					Act.moveToElement(wele).perform();
+					Act.moveToElement(webEle).perform();
 					Thread.sleep(1000);
 					rep.pass(fldName+" is hovered successfully");
 					break;
@@ -67,7 +76,7 @@ public class uiActionSteps extends DriverManager{
 				
 			case "hoverClick":
 				try {
-					Act.click(wele).perform();
+					Act.click(webEle).perform();
 					
 					rep.pass(fldName+"is clicked successfully");
 					Thread.sleep(1000);
@@ -87,11 +96,12 @@ public class uiActionSteps extends DriverManager{
 		
 	}
 	
-	public void enterText(String actionTobePerformed,String fldName,String value)
+	public void enterText(String actionTobePerformed,String fldName,String value) throws Exception
 	{
-		wele =driver.findElement(xmlParser.LoadOR(fldName));
+		webEle =driver.findElement(xmlParser.LoadOR(fldName));
+		Thread.sleep(1000);  
 		
-		if(wele.isDisplayed())
+		if(webEle.isDisplayed())
 		{
 			rep.info(fldName+" is displayed successfully");
 				switch (actionTobePerformed.toLowerCase())
@@ -99,7 +109,7 @@ public class uiActionSteps extends DriverManager{
 				{
 				case "entered":
 					try {
-					wele.sendKeys(value);
+						webEle.sendKeys(value);
 					rep.pass(value+"entered in "+ fldName+"  successfully");
 					}
 					catch(Exception e)
@@ -112,7 +122,7 @@ public class uiActionSteps extends DriverManager{
 				case "selected":
 					try
 					{
-					Select sel = new Select(wele);
+					Select sel = new Select(webEle);
 					sel.selectByVisibleText(value);
 					rep.fail(value+" selected in "+ fldName+" listbox successfully");
 					}
@@ -132,10 +142,11 @@ public class uiActionSteps extends DriverManager{
 	}
 	
 	
-	public void isDisplayed(String fldName)
+	public void isDisplayed(String fldName) throws Exception
 	{
-		wele =driver.findElement(xmlParser.LoadOR(fldName));
-		if(wele.isDisplayed())
+		webEle =driver.findElement(xmlParser.LoadOR(fldName));
+		Thread.sleep(1000);  
+		if(webEle.isDisplayed())
 		{
 			try {
 				

@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverManager {
 	
@@ -37,15 +39,18 @@ public class DriverManager {
 			throw new Exception ("Edge browser is not yet implemented");
 		
 		case "remote":
-			System.out.println("Yet to Implement");
-			throw new Exception ("Remote browser is not yet implemented");
+			String grid_url = "http://hub:4444/wd/hub";
+			ChromeOptions chromeOptions = new ChromeOptions();
+			
+			driver = new RemoteWebDriver(new URL(grid_url), chromeOptions);
+			
 		}
 	}
 	
 	public void loadConfig()
 	{
 		try {
-			FileReader fr  = new FileReader("src/main/resources/configFiles/Config.properties");
+			FileReader fr  = new FileReader("target/Magneto/src/test/resources/configFiles/Config.properties");
 			BufferedReader br = new BufferedReader(fr);
 			prop.load(br);
 		//	prop.load(System.getProperties());

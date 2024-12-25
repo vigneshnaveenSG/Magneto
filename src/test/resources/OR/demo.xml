@@ -125,7 +125,7 @@
 			locator="//div[@option-label='Red']" dataField="false" anchor="true">
 		</Link>	
 		<button name="AddToCartbtn" type="xpath"
-			locator="//button[@title='Add to Cart']" dataField="false" anchor="true">
+			locator="//button[@title='Add to Cart']/span" dataField="false" anchor="true">
 		</button>	
 		
 		<WebElement name="sizeerror" type="xpath"
@@ -137,7 +137,7 @@
 		</WebElement>	
 		
 		<button name="MyCart" type="xpath"
-			locator="//span[contains(text(),'My Cart')]/.." dataField="false" anchor="true">
+			locator="//span[contains(text(),'My Cart')]//parent::a" dataField="false" anchor="true">
 		</button>
 		
 		<button name="ProceedtoCheckout" type="xpath"

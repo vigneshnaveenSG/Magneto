@@ -40,6 +40,7 @@ public void launch_the_magneto_application() {
 			String url=prop.getProperty("URL");	
 			
 			try {
+				getDriver(prop.getProperty("browser"));
 				ui.launchBrowser(url);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -54,28 +55,28 @@ public void launch_the_magneto_application() {
 		}
 		
 		@Then("^User (click|clicks|Clicks|Click|Hover|hover|Clicked|clicked|hoverClick) on (.*) (?:link|textbox|button|logo|Logo|Button|Textbox|Link|link|Menu|menu)$")
-		public void user_click_on_sign_in_link(String actionTobePerformed, String fldname) {
+		public void user_click_on_sign_in_link(String actionTobePerformed, String fldname) throws Exception {
 		    // Write code here that turns the phrase above into concrete actions					
 			ui.clickElement(actionTobePerformed,fldname);					    
 		}
 
 		
 		@When("^User (entered|selected|selects|Selects) the (.*) in (.*) (?:textbox|listbox)$")
-		public void user_entered_the_in_email_textbox(String actionTobePerformed,String value , String fldName) {
+		public void user_entered_the_in_email_textbox(String actionTobePerformed,String value , String fldName) throws Exception {
 		    // Write code here that turns the phrase above into concrete actions
 		   ui.enterText(actionTobePerformed,fldName, value);
 		}
 	
 		
 		@Then("^(?:verify|Verify|check|Check) (.*) (?:link|textbox|button|logo|Logo|Button|Textbox|Link|section|Section|element) is (?:displayed|visible|Displayed|Visible|exist|Exist)$")
-		public void verify_luma_logo_is_displayed(String fldname ) {
+		public void verify_luma_logo_is_displayed(String fldname ) throws Exception {
 		    // Write code here that turns the phrase above into concrete actions
 		    ui.isDisplayed(fldname);
 		}
 		
 		
 		@Then("^(?:verify|Verify|check|Check) \"(.*)\" (?:item|message) is displayed in (.*) Section$")
-		public void verify_item_is_displayed_in_hotseller_section(String fldvalue, String fldname) {
+		public void verify_item_is_displayed_in_hotseller_section(String fldvalue, String fldname) throws Exception {
 		   if( ui.updateXmlDom(fldname,fldvalue))
 		   {
 			   ui.isDisplayed(fldname);
@@ -85,7 +86,7 @@ public void launch_the_magneto_application() {
 		}
 		@Then("^(?:verify|Verify|check|Check) the \"(.*)\" item available in below (.*)$")
 		@Then("^(?:verify|Verify|check|Check) the \"(.*)\" item has (.*) section")
-		public void verify_the_item_available_in_below_sizes(String fldvalue,String fldname, DataTable dataTable) {
+		public void verify_the_item_available_in_below_sizes(String fldvalue,String fldname, DataTable dataTable) throws Exception {
 			List <String> ls =dataTable.asList();
 			boolean bln=ui.updateXmlDom(fldname,fldvalue);
 			for(int i=0;i<=ls.size()-1;i++)
@@ -102,7 +103,7 @@ public void launch_the_magneto_application() {
 		
 	
 		@Then("verify below error message is displayed in (.*) Section")
-		public void verify_below_error_message_is_displayed_in_size_section(String fldname, DataTable dataTable) {
+		public void verify_below_error_message_is_displayed_in_size_section(String fldname, DataTable dataTable) throws Exception {
 			List <String> ls =dataTable.asList();
 			for(int i=0;i<=ls.size()-1;i++)
 			{

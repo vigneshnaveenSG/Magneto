@@ -4,7 +4,7 @@ Feature: "Hot Seller Section Validation"
     Given Launch the Magneto application
     Then Verify Home page is displayed
 
-
+  
   Scenario Outline: "Home screen Menu bar validation"
     Then Verify Home page is displayed
     Then User hover on Men menu

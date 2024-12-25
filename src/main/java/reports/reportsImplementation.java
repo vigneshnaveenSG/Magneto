@@ -3,7 +3,6 @@ package reports;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
-
 import io.cucumber.java.Scenario;
 import reusables.DriverManager;
 

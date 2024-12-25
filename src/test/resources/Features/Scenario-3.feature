@@ -1,12 +1,14 @@
 Feature: "Hot Seller Section Validation"
 
-  Background: "User is Logged In"
+  @jenkins
+  Scenario Outline: "User is Logged In"
     Given Launch the Magneto application
     Then Verify Home page is displayed
 
-  Scenario Outline: "Home screen Menu bar validation"
-    # Given Launch the Magneto application
-    # Then Verify Home page is displayed
+  @jenkins
+  Scenario Outline: "Breathe-Easy Tank price validation "
+    Given Launch the Magneto application
+    Then Verify Home page is displayed
     Then verify Luma logo is displayed
     Then Verify Hotsellers section is displayed
     Then verify "Breathe-Easy Tank" item is displayed in Hotseller Section
@@ -15,9 +17,10 @@ Feature: "Hot Seller Section Validation"
     Then verify the "Breathe-Easy Tank" item has lowestprice section
       | 34.00 |
 
-  Scenario Outline: "Home screen Menu bar validation"
-    # Given Launch the Magneto application
-    # Then Verify Home page is displayed
+  @jenkins
+  Scenario Outline: "Radiant Tee price validation"
+    Given Launch the Magneto application
+    Then Verify Home page is displayed
     Then verify Luma logo is displayed
     Then Verify Hotsellers section is displayed
     Then verify "Radiant Tee" item is displayed in Hotseller Section
@@ -26,10 +29,10 @@ Feature: "Hot Seller Section Validation"
     Then verify the "Radiant Tee" item has lowestprice section
       | 22.00 |
 
-  @dontrun
-  Scenario Outline: "Home screen Menu bar validation"
-    # Given Launch the Magneto application
-    # Then Verify Home page is displayed
+  @jenkins
+  Scenario Outline: "Argus All-Weather Tank price validation"
+    Given Launch the Magneto application
+    Then Verify Home page is displayed
     Then verify Luma logo is displayed
     Then Verify Hotsellers section is displayed
     Then verify "Argus All-Weather Tank" item is displayed in Hotseller Section
@@ -38,10 +41,10 @@ Feature: "Hot Seller Section Validation"
     Then verify the "Argus All-Weather Tank" item has lowestprice section
       | 22.00 |
 
-  @dontrun
-  Scenario Outline: "Home screen Menu bar validation"
-    # Given Launch the Magneto application
-    # Then Verify Home page is displayed
+  @jenkins
+  Scenario Outline: "Hero Hoodie price validation"
+    Given Launch the Magneto application
+    Then Verify Home page is displayed
     Then verify Luma logo is displayed
     Then Verify Hotsellers section is displayed
     Then verify "Hero Hoodie" item is displayed in Hotseller Section

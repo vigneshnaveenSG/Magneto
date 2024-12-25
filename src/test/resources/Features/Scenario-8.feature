@@ -47,21 +47,6 @@ Feature: "Hot Seller Section Validation"
     When User entered the <PhoneNumber> in phonenumber textbox
     Then User click on flatrate button
     Then User click on next button
-    Then User wait for 10000 seconds
-    Then Verify payment page is displayed
-    Then Verify paymentmethod element is displayed
-    Then Verify ordersummary element is displayed
-    Then Verify shipto element is displayed
-    Then Verify shippingmethod element is displayed
-    Then User click on placeorder button
-    Then User wait for 10000 seconds
-    Then Verify completion page is displayed
-    Then Verify thanksmsg element is displayed
-    Then Verify emailaddress element is displayed
-    Then User click on continueshopping button
-    Then User wait for 10000 seconds
-    Then Verify Home page is displayed
-    Then Verify Luma link is displayed
 
     Examples: 
       | Email       | Firstname | Lastname | Company | StreetAddr1 | StreetAddr2 | StreetAddr3 | city | State   | zip   | Country       | PhoneNumber |

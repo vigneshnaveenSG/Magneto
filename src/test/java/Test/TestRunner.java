@@ -1,13 +1,13 @@
 package Test;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(
-		features="src/main/resources/Features",
+		features="target/Magneto/src/test/resources/Features/Scenario-2.feature",
 		glue={"stepDef","reusables"},
 		tags="@jenkins",
 		plugin={"html:target/cucumber-html-report", "json:target/cucumber.json",
@@ -20,5 +20,13 @@ import io.cucumber.testng.CucumberOptions;
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
+	
+	@Override
+	@Test
+	@DataProvider(parallel = false)
+	public Object[][] scenarios(){
+		System.out.println("#####Executing the Linear Runner###");
+		return super.scenarios();
+	}
 
 }

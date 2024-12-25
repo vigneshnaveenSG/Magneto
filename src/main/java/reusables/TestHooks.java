@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import reports.reportsImplementation;
@@ -26,7 +27,7 @@ public class TestHooks extends DriverManager {
 		ORLoader.LoadOR(prop.getProperty("ORPath"));
 		reportsImplementation  rep= new reportsImplementation();
 		rep.reportsInitialization(sce);
-		getDriver(prop.getProperty("browser"));
+		//getDriver(prop.getProperty("browser"));
 		
 	/*	xmlParser xp = new xmlParser();
 		xp.LoadOR("PassWord");*/
@@ -39,4 +40,11 @@ public class TestHooks extends DriverManager {
 		rep.reportsInitialization(sce);
 		getDriver(prop.getProperty("browser"));
 	}*/
+	
+	@After()
+	public void closeDriver()
+	{
+		driver.close();
+		//rep.info("Driver is closed");
+	}
 } 
