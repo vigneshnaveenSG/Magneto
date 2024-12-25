@@ -1,0 +1,20 @@
+pipeline
+{
+    agent any
+   
+    stages{
+        stage('BUild Jar')
+        {
+            steps{
+                bat "mvn clean package -DskipTests"
+            }
+        }
+        
+        stage('push image')
+        {
+            steps{
+                bat "docker push sgvignesh2007/magneto"
+            }
+        }
+    }
+}
