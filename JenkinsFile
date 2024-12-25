@@ -6,14 +6,14 @@ pipeline
         stage('BUild Jar')
         {
             steps{
-                "mvn clean package -DskipTests"
+                sh "mvn clean package -DskipTests"
             }
         }
         
         stage('push image')
         {
             steps{
-                "docker push sgvignesh2007/magneto"
+                sh "docker push sgvignesh2007/magneto"
             }
         }
     }
