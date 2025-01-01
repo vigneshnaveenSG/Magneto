@@ -22,20 +22,22 @@ pipeline
         {
 			
             steps{			
-                bat 'docker-compose -f ./Compose/grid.yml up -d'
+                bat "docker-compose -f ./Compose/grid.yml up -d"
             }
         }
         stage('Executing the TestCases')
         {
 			
             steps{
-				bat 'docker-compose -f ./Compose/magneto.yml up --pull=always'              
+				bat "docker-compose -f ./Compose/magneto.yml up --pull=always"              
             }
         }
     }
     
     post{
 		always{
+			bat "docker-compose -f ./Compose/grid.yml down"
+			bat "docker-compose -f ./Compose/magneto.yml down" 
 			bat "docker logout"
 		}
 	}
