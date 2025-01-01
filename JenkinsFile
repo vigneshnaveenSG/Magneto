@@ -3,18 +3,40 @@ pipeline
     agent any
    
     stages{
-        stage('BUild Jar')
+        stage('BUilding the Jar')
         {
             steps{
                 bat '"C:\\Vignesh\\Softwares\\apache-maven-3.9.9-bin\\apache-maven-3.9.9\\bin\\mvn" clean package -DskipTests'
             }
         }
         
-        stage('push image')
+        stage('pushing the image')
         {
+			
             steps{
+				bat 'docker login -u sgvignesh2007 -p Deepika123$'
                 bat "docker push sgvignesh2007/magneto"
             }
         }
+        stage('Starting the Grid')
+        {
+			
+            steps{			
+                bat 'docker-compose -f ./Compose/grid.yml up -d'
+            }
+        }
+        stage('Executing the TestCases')
+        {
+			
+            steps{
+				bat 'docker-compose -f ./Compose/magneto.yml up -pull=always'              
+            }
+        }
     }
+    
+    post{
+		always{
+			bat "docker logout"
+		}
+	}
 }
