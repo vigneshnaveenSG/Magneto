@@ -29,7 +29,7 @@ pipeline
         {
 			
             steps{
-				bat 'docker-compose -f ./Compose/magneto.yml up -pull=always'              
+				bat 'docker-compose -f ./Compose/magneto.yml up --pull=always'              
             }
         }
     }
