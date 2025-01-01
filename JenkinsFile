@@ -3,10 +3,17 @@ pipeline
     agent any
    
     stages{
-        stage('BUilding the Jar')
+        stage('Packaging the Jar')
         {
             steps{
                 bat '"C:\\Vignesh\\Softwares\\apache-maven-3.9.9-bin\\apache-maven-3.9.9\\bin\\mvn" clean package -DskipTests'
+            }
+        }
+        
+        stage('BUilding the Images')
+        {
+            steps{
+                bat "docker build -t=sgvignesh2007/magneto ."
             }
         }
         
