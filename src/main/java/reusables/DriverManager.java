@@ -39,7 +39,7 @@ public class DriverManager {
 			throw new Exception ("Edge browser is not yet implemented");
 		
 		case "remote":
-			String grid_url = "http://hub:4444/wd/hub";
+			String grid_url = "http://192.168.0.106:4444/wd/hub";
 			ChromeOptions chromeOptions = new ChromeOptions();
 			
 			driver = new RemoteWebDriver(new URL(grid_url), chromeOptions);
