@@ -24,8 +24,7 @@ public class ParallelRunner {
                 "--plugin", "usage:target/cucumber-usage.json",
               //  "--dry-run",
              //   "--monochrome",
-                "src/main/resources/Features/Scenario-2.feature",
-                "src/main/resources/Features/Scenario-3.feature"
+                "src/test/resources/Features/wordpress.feature"
         };
 
         try {

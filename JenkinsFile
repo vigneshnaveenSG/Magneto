@@ -13,7 +13,7 @@ pipeline
         stage('BUilding the Images')
         {
             steps{
-                bat "docker build -t=sgvignesh2007/magneto ."
+                bat "docker build -t=sgvignesh2007/wordpress ."
             }
         }
         
@@ -22,7 +22,7 @@ pipeline
 			
             steps{
 				bat 'docker login -u sgvignesh2007 -p Deepika123$'
-                bat "docker push sgvignesh2007/magneto"
+                bat "docker push sgvignesh2007/wordpress"
             }
         }
         stage('Starting the Grid')
@@ -36,7 +36,7 @@ pipeline
         {
 			
             steps{
-				bat "docker-compose -f ./Compose/magneto.yml up --pull=always"              
+				bat "docker-compose -f ./Compose/wordpress.yml up --pull=always"              
             }
         }
     }
@@ -44,7 +44,7 @@ pipeline
     post{
 		always{
 			bat "docker-compose -f ./Compose/grid.yml down"
-			bat "docker-compose -f ./Compose/magneto.yml down" 
+			bat "docker-compose -f ./Compose/wordpress.yml down" 
 			bat "docker logout"
 		}
 	}

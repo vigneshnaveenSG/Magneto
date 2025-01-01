@@ -46,5 +46,5 @@ public class TestHooks extends DriverManager {
 	{
 		driver.close();
 		//rep.info("Driver is closed");
-	}
+	} 
 } 

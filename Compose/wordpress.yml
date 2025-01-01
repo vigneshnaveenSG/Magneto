@@ -1,6 +1,6 @@
 version: "3"
 services:
   magneto:
-    image: sgvignesh2007/magneto
+    image: sgvignesh2007/wordpress
     volumes:
     - C:\Vignesh\Learning\Frameworks\Magneto\output:/home/test-output

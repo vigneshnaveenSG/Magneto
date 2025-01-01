@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 
 @CucumberOptions(
-		features="target/Magneto/src/test/resources/Features/Scenario-2.feature",
+		features="target/Magneto/src/test/resources/Features/wordpress.feature",
 		glue={"stepDef","reusables"},
 		tags="@jenkins",
 		plugin={"html:target/cucumber-html-report", "json:target/cucumber.json",

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Application name="magneto">
+  
+   <Page bearsData="true" name="Login" title="" index="">
+   		<Textbox name="username" type="id"
+			locator="user_login" dataField="false" anchor="true">
+		</Textbox>
+		<Textbox name="password" type="id"
+			locator="user_pass" dataField="false" anchor="true">
+		</Textbox>
+		<Button name="login" type="id"
+			locator="wp-submit" dataField="false" anchor="true">
+		</Button>		
+	</Page>
+	
+</Application>

@@ -34,8 +34,8 @@ public class StepDefenition extends DriverManager {
 		uiActionSteps ui = new uiActionSteps();
 		
 
-@Given("Launch the Magneto application")
-public void launch_the_magneto_application() {
+@Given("^Launch the (.*) application$")
+public void launch_the_magneto_application(String appname) {
 		  
 			String url=prop.getProperty("URL");	
 			
