@@ -3,17 +3,31 @@ pipeline
     agent any
    
     stages{
+		
+		stage('Deploy wordpress')
+        {
+            steps{
+			   bat "echo ########Installing the Word Press Application############"	
+               bat "docker-compose -f ./Compose/wordpress-app.yml up --pull=always -d" 
+               bat "echo ########Word Press Application installation Completed############"	
+            }
+        }
+        
         stage('Packaging the Jar')
         {
             steps{
+				bat "echo ########Packaging the framework jar############"	
                 bat '"C:\\Vignesh\\Softwares\\apache-maven-3.9.9-bin\\apache-maven-3.9.9\\bin\\mvn" clean package -DskipTests'
+            	bat "echo ########Packaging the framework completed############"	
             }
         }
         
         stage('BUilding the Images')
         {
             steps{
+				bat "echo ########Building the framework docker image############"
                 bat "docker build -t=sgvignesh2007/wordpress ."
+                bat "echo ########Building the framework docker image is completed############"
             }
         }
         
@@ -21,30 +35,38 @@ pipeline
         {
 			
             steps{
+				bat "echo ########Pushing the framework docker image############"
 				bat 'docker login -u sgvignesh2007 -p Deepika123$'
                 bat "docker push sgvignesh2007/wordpress"
+                bat "echo ########pushed successfully to docker hube############"
             }
         }
         stage('Starting the Grid')
         {
 			
-            steps{			
+            steps{	
+				bat "echo ########Starting the Selenium Grid############"		
                 bat "docker-compose -f ./Compose/grid.yml up -d"
+                bat "echo ########Selenium Grid started successfully############"
             }
         }
         stage('Executing the TestCases')
         {
 			
             steps{
-				bat "docker-compose -f ./Compose/wordpress.yml up --pull=always"              
+				bat "echo ########Test Execution Started############"
+				bat "docker-compose -f ./Compose/wordpress.yml up --pull=always"  
+				bat "echo ########Test Execution Completed############"            
             }
         }
     }
     
     post{
 		always{
+			bat "echo ########Bringing down the entire infrastructure############"
 			bat "docker-compose -f ./Compose/grid.yml down"
 			bat "docker-compose -f ./Compose/wordpress.yml down" 
+			bat "docker-compose -f ./Compose/wordpress-app.yml down" 
 			bat "docker logout"
 		}
 	}
